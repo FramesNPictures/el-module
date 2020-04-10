@@ -1,32 +1,25 @@
 {
-    "name": "framesnpictures/el-module",
-    "description": "Laravel Module Helper",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "type": "library",
-    "authors": [
-        {
-            "name": "Chris Cynarski",
-            "email": "chris@framesnpictures.com"
-        }
-    ],
-    "require": {
-        "php": ">=7.3",
-        "framesnpictures/el-dto": "dev-develop"
-    },
-    "require-dev": {
-        "orchestra/testbench": ">=7"
-    },
-    "autoload": {
-        "psr-4": {
-            "Fnp\\ElModule\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Fnp\\ElModule\\ModuleInit"
-            ]
-        }
+  "name": "framesnpictures/el-module",
+  "description": "Laravel Module Helper",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "type": "library",
+  "authors": [
+    {
+      "name": "Chris Cynarski",
+      "email": "chris@framesnpictures.com"
     }
+  ],
+  "require": {
+    "php": ">=7.3",
+    "framesnpictures/el-dto": "dev-develop"
+  },
+  "require-dev": {
+    "orchestra/testbench": ">=7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Fnp\\ElModule\\": "src/"
+    }
+  }
 }

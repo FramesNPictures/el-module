@@ -4,17 +4,17 @@ namespace Fnp\ElModule\Features;
 
 use Illuminate\Routing\Router;
 
-trait ModuleCustomRoutes
+trait ModuleRoutesCustom
 {
     /**
      * Use $router variable to set up the routes (the usual way).
      *
      * @param Router $router
      */
-    abstract public function customRoutes(Router $router);
+    abstract public function defineCustomRoutes(Router $router): void;
 
-    public function bootModuleCustomRoutesFeature(Router $router)
+    public function bootModuleRoutesCustomFeature(Router $router)
     {
-        $this->customRoutes($router);
+        $this->defineCustomRoutes($router);
     }
 }

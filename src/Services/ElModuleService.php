@@ -3,14 +3,30 @@
 namespace Fnp\ElModule\Services;
 
 use Fnp\Dto\Common\Helper\Obj;
-use Fnp\ElModule\ModuleProvider;
-use Illuminate\Foundation\Application;
+use Fnp\ElModule\ElModule;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Collection;
+use ReflectionClass;
 
-class ModuleService
+class ElModuleService
 {
     /**
-     * @return Collection
+     * @var Application
+     */
+    protected $application;
+
+    /**
+     * ElModuleService constructor.
+     *
+     * @param Application $application
+     */
+    public function __construct(Application $application)
+    {
+        $this->application = $application;
+    }
+
+    /**
+     * @return Collection|ElModule[]
      * @throws \ReflectionException
      */
     public function getModuleProviders()
@@ -18,7 +34,7 @@ class ModuleService
         $modules = new Collection();
 
         foreach ($this->getServiceProviders() as $provider)
-            if ($provider instanceof ModuleProvider)
+            if ($provider instanceof ElModule)
                 $modules->push($provider);
 
         return $modules;
@@ -30,16 +46,18 @@ class ModuleService
      */
     public function getServiceProviders()
     {
-        $app = new \ReflectionClass(Application::getInstance());
+        $app = new ReflectionClass($this->application);
         $pro = $app->getProperty('serviceProviders');
         $pro->setAccessible(TRUE);
-        $val = $pro->getValue(Application::getInstance());
+        $val = $pro->getValue($this->application);
 
         return new Collection($val);
     }
 
     /**
      * @param $moduleGroups
+     *
+     * @throws \ReflectionException
      */
     public function initOnDemand($moduleGroups)
     {
@@ -53,7 +71,7 @@ class ModuleService
                 if (!$initMethod)
                     continue;
 
-                $moduleProvider->$initMethod();
+                $this->application->call([$moduleProvider, $initMethod]);
             }
     }
 }

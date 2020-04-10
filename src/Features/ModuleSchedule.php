@@ -5,20 +5,20 @@ namespace Fnp\ElModule\Features;
 
 
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Support\Facades\App;
+use Illuminate\Contracts\Foundation\Application;
 
 trait ModuleSchedule
 {
-    abstract public function schedule(Schedule $schedule);
+    abstract public function defineSchedule(Schedule $scheduler);
 
-    public function bootModuleScheduleFeature()
+    public function bootModuleScheduleFeature(Application $application)
     {
-        if (!App::runningInConsole())
+        if (!$application->runningInConsole())
             return;
 
-        $this->app->booted(function () {
-            $schedule = $this->app->make(Schedule::class);
-            $this->schedule($schedule);
+        $application->booted(function () use ($application) {
+            $schedule = $application->make(Schedule::class);
+            $this->defineSchedule($schedule);
         });
     }
 }

@@ -10,10 +10,10 @@ trait ModuleMigrations
      * Return the location of migrations (folder)
      * @return string
      */
-    abstract public function migrationsFolder(): string;
+    abstract public function defineMigrationFolders(): array;
 
     public function bootModuleMigrationsFeature()
     {
-        $this->loadMigrationsFrom($this->migrationsFolder());
+        $this->loadMigrationsFrom($this->defineMigrationFolders());
     }
 }

@@ -4,21 +4,21 @@ namespace Fnp\ElModule\Features;
 
 use Illuminate\Routing\Router;
 
-trait ModuleApiRoutes
+trait ModuleRoutesApi
 {
     /**
      * Use $router variable to set up the routes (the usual way).
      *
      * @param Router $router
      */
-    abstract public function apiRoutes(Router $router);
+    abstract public function defineApiRoutes(Router $router): void;
 
-    public function bootModuleApiRoutesFeature(Router $router)
+    public function bootModuleRoutesApiFeature(Router $router)
     {
         $router->middleware(['api'])
                ->prefix('/api')
                ->group(function () use ($router) {
-                   $this->apiRoutes($router);
+                   $this->defineApiRoutes($router);
                });
     }
 }

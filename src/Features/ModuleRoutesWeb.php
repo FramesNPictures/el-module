@@ -4,19 +4,19 @@ namespace Fnp\ElModule\Features;
 
 use Illuminate\Routing\Router;
 
-trait ModuleWebRoutes
+trait ModuleRoutesWeb
 {
     /**
      * Use $router variable to set up the routes (the usual way).
      *
      * @param Router $router
      */
-    abstract public function webRoutes(Router $router);
+    abstract public function defineWebRoutes(Router $router): void;
 
-    public function bootModuleWebRoutesFeature(Router $router)
+    public function bootModuleRoutesWebFeature(Router $router)
     {
         $router->middleware(['web'])->group(function () use ($router) {
-            $this->webRoutes($router);
+            $this->defineWebRoutes($router);
         });
     }
 }
