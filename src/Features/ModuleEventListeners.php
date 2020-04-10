@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Fnp\Module\Features;
+namespace Fnp\ElModule\Features;
 
 use Illuminate\Support\Facades\Event;
 

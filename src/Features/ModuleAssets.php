@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Fnp\Module\Features;
+namespace Fnp\ElModule\Features;
 
 
 trait ModuleAssets

@@ -1,6 +1,6 @@
 <?php
 
-namespace Fnp\Module\Definitions;
+namespace Fnp\ElModule\Definitions;
 
 use Fnp\Dto\Common\Helper\Obj;
 use Illuminate\Support\Facades\Config;

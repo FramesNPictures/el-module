@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Fnp\Module\Console;
+namespace Fnp\ElModule\Console;
 
 
-use Fnp\Module\Definitions\PhpUnitDefinition;
-use Fnp\Module\Features\ModulePhpUnit;
-use Fnp\Module\Services\ModuleService;
+use Fnp\ElModule\Definitions\PhpUnitDefinition;
+use Fnp\ElModule\Features\ModulePhpUnit;
+use Fnp\ElModule\Services\ModuleService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 

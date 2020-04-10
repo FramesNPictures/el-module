@@ -1,8 +1,8 @@
 <?php
 
-namespace Fnp\Module\Features;
+namespace Fnp\ElModule\Features;
 
-use Fnp\Module\Definitions\FrontendModuleDefinition;
+use Fnp\ElModule\Definitions\FrontendModuleDefinition;
 
 trait ModuleFrontend
 {

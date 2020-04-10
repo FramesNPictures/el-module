@@ -1,8 +1,8 @@
 <?php
 
-namespace Fnp\Module\Features;
+namespace Fnp\ElModule\Features;
 
-use Fnp\Module\Definitions\PhpUnitDefinition;
+use Fnp\ElModule\Definitions\PhpUnitDefinition;
 
 trait ModulePhpUnit
 {

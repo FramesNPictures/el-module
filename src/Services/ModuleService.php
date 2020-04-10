@@ -1,9 +1,9 @@
 <?php
 
-namespace Fnp\Module\Services;
+namespace Fnp\ElModule\Services;
 
 use Fnp\Dto\Common\Helper\Obj;
-use Fnp\Module\ModuleProvider;
+use Fnp\ElModule\ModuleProvider;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Collection;
 

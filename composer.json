@@ -1,6 +1,8 @@
 {
     "name": "framesnpictures/el-module",
     "description": "Laravel Module Helper",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "type": "library",
     "authors": [
         {
@@ -17,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Fnp\\Module\\": "src/"
+            "Fnp\\ElModule\\": "src/"
         }
     },
     "extra": {

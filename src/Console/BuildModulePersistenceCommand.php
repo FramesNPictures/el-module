@@ -1,9 +1,9 @@
 <?php
 
-namespace Fnp\Module\Console;
+namespace Fnp\ElModule\Console;
 
-use Fnp\Module\ModuleProvider;
-use Fnp\Module\Services\ModuleService;
+use Fnp\ElModule\ModuleProvider;
+use Fnp\ElModule\Services\ModuleService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;

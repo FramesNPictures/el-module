@@ -1,6 +1,6 @@
 <?php
 
-namespace Fnp\Module;
+namespace Fnp\ElModule;
 
 use Fnp\Dto\Common\Helper\Obj;
 use Illuminate\Routing\Router;

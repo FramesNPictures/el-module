@@ -1,13 +1,13 @@
 <?php
 
-namespace Fnp\Module;
+namespace Fnp\ElModule;
 
-use Fnp\Module\Console\BuildModuleFrontendCommand;
-use Fnp\Module\Console\BuildModulePersistenceCommand;
-use Fnp\Module\Console\BuildModulePhpUnitCommand;
-use Fnp\Module\Features\ModuleConfig;
-use Fnp\Module\Features\ModuleConsole;
-use Fnp\Module\Features\ModuleViews;
+use Fnp\ElModule\Console\BuildModuleFrontendCommand;
+use Fnp\ElModule\Console\BuildModulePersistenceCommand;
+use Fnp\ElModule\Console\BuildModulePhpUnitCommand;
+use Fnp\ElModule\Features\ModuleConfig;
+use Fnp\ElModule\Features\ModuleConsole;
+use Fnp\ElModule\Features\ModuleViews;
 
 class ModuleInit extends ModuleProvider
 {

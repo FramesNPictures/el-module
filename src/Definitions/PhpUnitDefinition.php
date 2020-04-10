@@ -1,6 +1,6 @@
 <?php
 
-namespace Fnp\Module\Definitions;
+namespace Fnp\ElModule\Definitions;
 
 class PhpUnitDefinition
 {

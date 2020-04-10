@@ -1,6 +1,6 @@
 <?php
 
-namespace Fnp\Module\Features;
+namespace Fnp\ElModule\Features;
 
 use Illuminate\Foundation\Application;
 
