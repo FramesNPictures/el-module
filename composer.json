@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": ">=7.3",
-        "framesnpictures/dto": "dev-develop"
+        "framesnpictures/el-dto": "dev-develop"
     },
     "require-dev": {
         "orchestra/testbench": ">=7"
