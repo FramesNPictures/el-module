@@ -25,7 +25,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Fnp\\Module\\ModuleInit"
+                "Fnp\\ElModule\\ModuleInit"
             ]
         }
     }
