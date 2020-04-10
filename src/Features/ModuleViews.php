@@ -19,16 +19,18 @@ trait ModuleViews
 
     public function bootModuleViewsFeature(ConfigRepository $config)
     {
-        $this->defineViewFolders($v = new ModuleViewsModel());
+        $v = new ModuleViewsModel();
 
-        foreach ($v->getNamespacedViews() as $namespace => $path)
+        $this->defineViewFolders($v);
+
+        foreach ($v->getNamespacedViewFolders() as $namespace => $path)
             $this->loadViewsFrom($path, $namespace);
 
         if (count($v->getViewFolders()))
             $config->set(
                 'view.paths',
                 array_merge(
-                    $config->get('view.path'),
+                    $config->get('view.path', []),
                     $v->getViewFolders()
                 )
             );

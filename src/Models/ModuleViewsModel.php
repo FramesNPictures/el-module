@@ -4,17 +4,17 @@ namespace Fnp\ElModule\Models;
 
 class ModuleViewsModel
 {
-    private $viewFolders     = [];
-    private $namespacedViews = [];
+    private $viewFolders           = [];
+    private $namespacedViewFolders = [];
 
-    public function addViewFolder($folder)
+    public function addViewFolder($folder): void
     {
         $this->viewFolders[] = $folder;
     }
 
-    public function addNamespacedViewFolder($namespace, $folder)
+    public function addNamespacedViewFolder($namespace, $folder): void
     {
-        $this->namespacedViews[$namespace] = $folder;
+        $this->namespacedViewFolders[$namespace] = $folder;
     }
 
     /**
@@ -28,8 +28,8 @@ class ModuleViewsModel
     /**
      * @return array
      */
-    public function getNamespacedViews(): array
+    public function getNamespacedViewFolders(): array
     {
-        return $this->namespacedViews;
+        return $this->namespacedViewFolders;
     }
 }
