@@ -30,7 +30,7 @@ trait ModuleViews
             $config->set(
                 'view.paths',
                 array_merge(
-                    $config->get('view.path', []),
+                    (array)$config->get('view.path', []),
                     $v->getViewFolders()
                 )
             );
