@@ -26,14 +26,14 @@ trait ModuleViews
         foreach ($v->getNamespacedViewFolders() as $namespace => $path)
             $this->loadViewsFrom($path, $namespace);
 
-        if (count($v->getViewFolders()))
+        if (count($v->getViewFolders())) {
             $config->set(
                 'view.paths',
                 array_merge(
-                    (array)$config->get('view.path', []),
+                    (array)$config->get('view.paths', []),
                     $v->getViewFolders()
                 )
             );
-
+        }
     }
 }
