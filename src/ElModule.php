@@ -2,7 +2,7 @@
 
 namespace Fnp\ElModule;
 
-use Fnp\Dto\Common\Helper\Obj;
+use Fnp\ElHelper\Obj;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 

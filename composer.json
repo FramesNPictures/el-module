@@ -12,10 +12,8 @@
   ],
   "require": {
     "php": "^7.3|^8.0",
-    "framesnpictures/el-dto": "dev-develop"
-  },
-  "require-dev": {
-    "orchestra/testbench": ">=7"
+    "framesnpictures/el-helper": "dev-develop",
+    "orchestra/testbench": "^6.20"
   },
   "autoload": {
     "psr-4": {

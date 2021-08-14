@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Fnp\ElModule\Features;
-
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Foundation\Application;
