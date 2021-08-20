@@ -11,13 +11,14 @@ trait ModuleConsoleCommands
     /**
      * Return an array of console command's class names
      *
-     * @return array
+     * @return array|string[]
      */
     abstract public function defineConsoleCommands(): array;
 
     public function registerModuleConsoleCommandsFeature(Application $application)
     {
-        if ($application->runningInConsole())
+        if ($application->runningInConsole()) {
             $this->commands($this->defineConsoleCommands());
+        }
     }
 }

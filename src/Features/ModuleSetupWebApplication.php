@@ -10,6 +10,8 @@ trait ModuleSetupWebApplication
 
     public function bootModuleSetupWebApplicationFeature(Application $application)
     {
-        $this->setupWebApplication($application);
+        if (!$application->runningInConsole()) {
+            $this->setupWebApplication($application);
+        }
     }
 }

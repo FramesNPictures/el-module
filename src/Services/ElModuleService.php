@@ -2,11 +2,12 @@
 
 namespace Fnp\ElModule\Services;
 
-use Fnp\Dto\Common\Helper\Obj;
+use Fnp\ElHelper\Obj;
 use Fnp\ElModule\ElModule;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Collection;
 use ReflectionClass;
+use ReflectionException;
 
 class ElModuleService
 {
@@ -18,7 +19,7 @@ class ElModuleService
     /**
      * ElModuleService constructor.
      *
-     * @param Application $application
+     * @param  Application  $application
      */
     public function __construct(Application $application)
     {
@@ -27,51 +28,57 @@ class ElModuleService
 
     /**
      * @return Collection|ElModule[]
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function getModuleProviders()
     {
         $modules = new Collection();
 
-        foreach ($this->getServiceProviders() as $provider)
-            if ($provider instanceof ElModule)
+        foreach ($this->getServiceProviders() as $provider) {
+            if ($provider instanceof ElModule) {
                 $modules->push($provider);
+            }
+        }
 
         return $modules;
     }
 
     /**
      * @return Collection
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function getServiceProviders()
     {
         $app = new ReflectionClass($this->application);
         $pro = $app->getProperty('serviceProviders');
-        $pro->setAccessible(TRUE);
+        $pro->setAccessible(true);
         $val = $pro->getValue($this->application);
 
         return new Collection($val);
     }
 
     /**
-     * @param $moduleGroups
+     * Initialize on demand feature
      *
-     * @throws \ReflectionException
+     * @param $moduleGroups
+     * @throws ReflectionException
      */
     public function initOnDemand($moduleGroups)
     {
-        if (!is_array($moduleGroups))
+        if (!is_array($moduleGroups)) {
             $moduleGroups = [$moduleGroups];
+        }
 
-        foreach ($this->getModuleProviders() as $moduleProvider)
+        foreach ($this->getModuleProviders() as $moduleProvider) {
             foreach ($moduleGroups as $moduleGroup) {
                 $initMethod = Obj::methodExists($moduleProvider, 'init', $moduleGroup, 'OnDemand');
 
-                if (!$initMethod)
+                if (!$initMethod) {
                     continue;
+                }
 
                 $this->application->call([$moduleProvider, $initMethod]);
             }
+        }
     }
 }

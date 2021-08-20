@@ -7,9 +7,10 @@ use Illuminate\Routing\Router;
 trait ModuleRoutesWeb
 {
     /**
-     * Use $router variable to set up the routes (the usual way).
+     * Use Router object to set up the routes
+     * usual laravel way
      *
-     * @param Router $router
+     * @param  Router  $router
      */
     abstract public function defineWebRoutes(Router $router): void;
 

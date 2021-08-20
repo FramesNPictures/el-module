@@ -7,9 +7,10 @@ use Illuminate\Routing\Router;
 trait ModuleRoutesApi
 {
     /**
-     * Use $router variable to set up the routes (the usual way).
+     * Use Router object to set up the routes
+     * usual Laravel way.
      *
-     * @param Router $router
+     * @param  Router  $router
      */
     abstract public function defineApiRoutes(Router $router): void;
 

@@ -4,11 +4,10 @@ namespace Fnp\ElModule\Features;
 
 trait ModuleMigrations
 {
-    abstract protected function loadMigrationsFrom($paths);
-
     /**
      * Return the location of migrations (folder)
-     * @return string
+     *
+     * @return array|string[]
      */
     abstract public function defineMigrationFolders(): array;
 
@@ -16,4 +15,6 @@ trait ModuleMigrations
     {
         $this->loadMigrationsFrom($this->defineMigrationFolders());
     }
+
+    abstract protected function loadMigrationsFrom($paths);
 }

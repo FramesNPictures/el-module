@@ -7,33 +7,28 @@ use Illuminate\Config\Repository as ConfigRepository;
 
 trait ModuleViews
 {
-    abstract protected function loadViewsFrom($path, $namespace);
-
     /**
-     * Return list of folders where views are stored:
-     * Put view namespace as key and full path as value.
+     * Return list of folders where views are stored. Those will be added
+     * to the default view folder list
      *
-     * @param ModuleViewsModel $views
+     * @return array|string[]
      */
-    abstract public function defineViewFolders(ModuleViewsModel $views): void;
+    abstract public function defineViewFolders(): array;
 
     public function bootModuleViewsFeature(ConfigRepository $config)
     {
-        $v = new ModuleViewsModel();
+        $folders = $this->defineViewFolders();
 
-        $this->defineViewFolders($v);
-
-        foreach ($v->getNamespacedViewFolders() as $namespace => $path)
-            $this->loadViewsFrom($path, $namespace);
-
-        if (count($v->getViewFolders())) {
+        if (count($folders)) {
             $config->set(
                 'view.paths',
                 array_merge(
-                    (array)$config->get('view.paths', []),
-                    $v->getViewFolders()
+                    (array) $config->get('view.paths', []),
+                    $folders
                 )
             );
         }
     }
+
+    abstract protected function loadViewsFrom($path, $namespace);
 }

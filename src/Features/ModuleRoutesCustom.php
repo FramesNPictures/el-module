@@ -7,9 +7,10 @@ use Illuminate\Routing\Router;
 trait ModuleRoutesCustom
 {
     /**
-     * Use $router variable to set up the routes (the usual way).
+     * Use Router object to set up the routes
+     * usual Laravel way.
      *
-     * @param Router $router
+     * @param  Router  $router
      */
     abstract public function defineCustomRoutes(Router $router): void;
 

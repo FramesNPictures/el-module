@@ -10,6 +10,8 @@ trait ModuleSetupConsoleApplication
 
     public function bootModuleSetupConsoleApplicationFeature(Application $application)
     {
-        $this->setupConsoleApplication($application);
+        if ($application->runningInConsole()) {
+            $this->setupConsoleApplication($application);
+        }
     }
 }

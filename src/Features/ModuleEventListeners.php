@@ -12,14 +12,13 @@ trait ModuleEventListeners
      * Event class as a key and listener class as a value.
      * For multiple listeners per event make value an array.
      *
-     * @return array
+     * @return array|string[]|array[]
      */
     abstract public function defineEventListeners(): array;
 
     public function bootModuleEventListenersFeature(Dispatcher $events)
     {
         foreach ($this->defineEventListeners() as $event => $listener) {
-
             if (!is_array($listener)) {
                 $events->listen($event, $listener);
                 continue;
@@ -29,6 +28,5 @@ trait ModuleEventListeners
                 $events->listen($event, $l);
             }
         }
-
     }
 }

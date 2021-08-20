@@ -16,7 +16,7 @@ trait ModuleBindInterfaces
 
     public function registerModuleBindInterfacesFeature(Application $application)
     {
-        foreach($this->defineInterfaceBinds() as $interface=> $concrete) {
+        foreach ($this->defineInterfaceBinds() as $interface => $concrete) {
             $application->bind($interface, $concrete);
         }
     }

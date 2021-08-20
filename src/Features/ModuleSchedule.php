@@ -7,12 +7,21 @@ use Illuminate\Contracts\Foundation\Application;
 
 trait ModuleSchedule
 {
-    abstract public function defineSchedule(Schedule $scheduler);
+    /**
+     * Use Schedule object to schedule the jobs and tasks
+     * usual Laravel way.
+     *
+     * @param  Schedule  $scheduler
+     *
+     * @return void
+     */
+    abstract public function defineSchedule(Schedule $scheduler): void;
 
     public function bootModuleScheduleFeature(Application $application)
     {
-        if (!$application->runningInConsole())
+        if (!$application->runningInConsole()) {
             return;
+        }
 
         $application->booted(function () use ($application) {
             $schedule = $application->make(Schedule::class);
