@@ -1,22 +1,34 @@
 <?php
 
-namespace Fnp\Module\Features;
+namespace Fnp\ElModule\Features;
+
+use Fnp\ElModule\Models\ModuleViewsModel;
+use Illuminate\Config\Repository as ConfigRepository;
 
 trait ModuleViews
 {
-    abstract protected function loadViewsFrom($path, $namespace);
-
-
     /**
-     * Return list of folders where views are stored:
-     * Put view namespace as key and full path as value.
-     * @return array
+     * Return list of folders where views are stored. Those will be added
+     * to the default view folder list
+     *
+     * @return array|string[]
      */
-    abstract public function views(): array;
+    abstract public function defineViewFolders(): array;
 
-    public function bootModuleViewsFeature()
+    public function bootModuleViewsFeature(ConfigRepository $config)
     {
-        foreach($this->views() as $namespace=> $path)
-        $this->loadViewsFrom($path, $namespace);
+        $folders = $this->defineViewFolders();
+
+        if (count($folders)) {
+            $config->set(
+                'view.paths',
+                array_merge(
+                    (array) $config->get('view.paths', []),
+                    $folders
+                )
+            );
+        }
     }
+
+    abstract protected function loadViewsFrom($path, $namespace);
 }

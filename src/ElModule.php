@@ -1,13 +1,12 @@
 <?php
 
-namespace Fnp\Module;
+namespace Fnp\ElModule;
 
-use Fnp\Dto\Common\Helper\Obj;
+use Fnp\ElHelper\Obj;
 use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
-abstract class ModuleProvider extends ServiceProvider
+abstract class ElModule extends ServiceProvider
 {
     protected $__bootFeatures     = [];
     protected $__registerFeatures = [];
@@ -51,7 +50,7 @@ abstract class ModuleProvider extends ServiceProvider
             $method = Obj::methodName('init', class_basename($trait), 'Feature');
 
             if (method_exists($class, $method) && !in_array($method, $initialized)) {
-                App::call([$this, $method]);
+                $this->app->call([$this, $method]);
 
                 $initialized[] = $method;
             }
@@ -71,13 +70,13 @@ abstract class ModuleProvider extends ServiceProvider
     protected function bootFeatures()
     {
         foreach ($this->__bootFeatures as $feature)
-            App::call([$this, $feature]);
+            $this->app->call([$this, $feature]);
     }
 
     protected function registerFeatures()
     {
         foreach ($this->__registerFeatures as $feature)
-            App::call([$this, $feature]);
+            $this->app->call([$this, $feature]);
     }
 
 }

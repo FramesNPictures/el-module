@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Fnp\Module\Features;
+namespace Fnp\ElModule\Features;
 
-use Illuminate\Support\Facades\Event;
+use Illuminate\Events\Dispatcher;
 
 trait ModuleEventListeners
 {
@@ -12,23 +12,21 @@ trait ModuleEventListeners
      * Event class as a key and listener class as a value.
      * For multiple listeners per event make value an array.
      *
-     * @return array
+     * @return array|string[]|array[]
      */
-    abstract public function eventListeners(): array;
+    abstract public function defineEventListeners(): array;
 
-    public function bootModuleEventListenersFeature()
+    public function bootModuleEventListenersFeature(Dispatcher $events)
     {
-        foreach ($this->eventListeners() as $event => $listener) {
-
+        foreach ($this->defineEventListeners() as $event => $listener) {
             if (!is_array($listener)) {
-                Event::listen($event, $listener);
+                $events->listen($event, $listener);
                 continue;
             }
 
             foreach ($listener as $l) {
-                Event::listen($event, $l);
+                $events->listen($event, $l);
             }
         }
-
     }
 }

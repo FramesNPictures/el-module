@@ -1,19 +1,20 @@
 <?php
 
-namespace Fnp\Module\Features;
+namespace Fnp\ElModule\Features;
 
 trait ModuleMigrations
 {
-    abstract protected function loadMigrationsFrom($paths);
-
     /**
      * Return the location of migrations (folder)
-     * @return string
+     *
+     * @return array|string[]
      */
-    abstract public function migrationsFolder(): string;
+    abstract public function defineMigrationFolders(): array;
 
     public function bootModuleMigrationsFeature()
     {
-        $this->loadMigrationsFrom($this->migrationsFolder());
+        $this->loadMigrationsFrom($this->defineMigrationFolders());
     }
+
+    abstract protected function loadMigrationsFrom($paths);
 }
