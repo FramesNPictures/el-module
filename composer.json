@@ -11,8 +11,10 @@
     }
   ],
   "require": {
-    "php": "^7.3|^8.0",
-    "framesnpictures/el-helper": "dev-develop",
+    "php": "^7.4|^8.0",
+    "framesnpictures/el-helper": "^0"
+  },
+  "require-dev": {
     "orchestra/testbench": "^6.20"
   },
   "autoload": {
