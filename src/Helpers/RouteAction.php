@@ -17,5 +17,9 @@ trait RouteAction
     /**
      *
      */
-    abstract public static function name(): string;
+    public static function name(): string
+    {
+        $elements = explode('\\',get_called_class());
+        return array_pop($elements);
+    }
 }
