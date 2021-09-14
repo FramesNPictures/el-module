@@ -19,6 +19,11 @@ trait RouteAction
      */
     public static function name(): string
     {
-        return str_replace('\\','',get_called_class());
+        return str_replace('\\', '', get_called_class());
+    }
+
+    public static function route(...$args)
+    {
+        return route(self::name(), $args);
     }
 }
