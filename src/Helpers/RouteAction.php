@@ -19,7 +19,6 @@ trait RouteAction
      */
     public static function name(): string
     {
-        $elements = explode('\\',get_called_class());
-        return array_pop($elements);
+        return str_replace('\\','',get_called_class());
     }
 }
