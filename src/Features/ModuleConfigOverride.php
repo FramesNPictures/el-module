@@ -14,7 +14,7 @@ trait ModuleConfigOverride
      */
     abstract public function defineConfigOverride(): array;
 
-    public function registerModuleConfigOverrideFeature()
+    public function bootModuleConfigOverrideFeature()
     {
         foreach ($this->defineConfigOverride() as $namespace => $value) {
             Config::set($namespace, $value);
