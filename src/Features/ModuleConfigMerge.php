@@ -2,7 +2,7 @@
 
 namespace Fnp\ElModule\Features;
 
-trait ModuleConfig
+trait ModuleConfigMerge
 {
     /**
      * Return array of config files to be merged.
@@ -10,11 +10,11 @@ trait ModuleConfig
      *
      * @return array|string[]
      */
-    abstract public function defineConfigFiles(): array;
+    abstract public function defineConfigMergeFiles(): array;
 
-    public function registerModuleConfigFeature()
+    public function registerModuleConfigMergeFeature()
     {
-        foreach ($this->defineConfigFiles() as $namespace => $file) {
+        foreach ($this->defineConfigMergeFiles() as $namespace => $file) {
             $this->mergeConfigFrom($file, $namespace);
         }
     }
