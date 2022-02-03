@@ -13,6 +13,10 @@ trait ModuleMigrations
 
     public function bootModuleMigrationsFeature()
     {
+        if (!$this->app->runningInConsole()) {
+            return;
+        }
+
         $this->loadMigrationsFrom($this->defineMigrationFolders());
     }
 
