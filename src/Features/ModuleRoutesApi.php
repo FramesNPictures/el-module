@@ -16,6 +16,10 @@ trait ModuleRoutesApi
 
     public function bootModuleRoutesApiFeature(Router $router)
     {
+        if ($this->app->routesAreCached()) {
+            return; // Do not process routes if cached
+        }
+
         $router->middleware(['api'])
                ->prefix('/api')
                ->group(function () use ($router) {

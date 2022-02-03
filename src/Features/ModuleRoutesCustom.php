@@ -16,6 +16,10 @@ trait ModuleRoutesCustom
 
     public function bootModuleRoutesCustomFeature(Router $router)
     {
+        if ($this->app->routesAreCached()) {
+            return; // Do not process routes if cached
+        }
+
         $this->defineCustomRoutes($router);
     }
 }
