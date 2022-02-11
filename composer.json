@@ -15,7 +15,7 @@
     "framesnpictures/el-helper": "^0"
   },
   "require-dev": {
-    "orchestra/testbench": "^6.20"
+    "orchestra/testbench": ">=6"
   },
   "autoload": {
     "psr-4": {
