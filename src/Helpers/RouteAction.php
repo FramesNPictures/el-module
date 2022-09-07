@@ -2,6 +2,8 @@
 
 namespace Fnp\ElModule\Helpers;
 
+use Illuminate\Support\Str;
+
 trait RouteAction
 {
     /**
@@ -17,9 +19,13 @@ trait RouteAction
     /**
      *
      */
-    public static function name(): string
+    public static function name($provider = null): string
     {
-        return str_replace('\\', '', get_called_class());
+        if ( ! $provider) {
+            return str_replace('\\', '', get_called_class());
+        }
+
+        return str_replace('\\', '', get_called_class()) . ucfirst(Str::camel($provider));
     }
 
     public static function route(...$args)
