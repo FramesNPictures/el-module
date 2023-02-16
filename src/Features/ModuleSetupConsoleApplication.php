@@ -2,7 +2,7 @@
 
 namespace Fnp\ElModule\Features;
 
-use Illuminate\Contracts\Console\Application;
+use Illuminate\Foundation\Application;
 
 trait ModuleSetupConsoleApplication
 {
