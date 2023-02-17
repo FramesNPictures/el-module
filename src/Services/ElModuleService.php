@@ -2,7 +2,7 @@
 
 namespace Fnp\ElModule\Services;
 
-use Fnp\Helper\Obj;
+use Fnp\ElHelper\Obj;
 use Fnp\ElModule\ElModule;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Collection;
