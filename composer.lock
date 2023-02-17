@@ -434,16 +434,16 @@
         },
         {
             "name": "framesnpictures/el-helper",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FramesNPictures/el-helper.git",
-                "reference": "361e07ccd11ea93ab2430e3105f7539e1ec888ff"
+                "reference": "7d16b0f14a7a06b3dd8eb6528137da400952262f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FramesNPictures/el-helper/zipball/361e07ccd11ea93ab2430e3105f7539e1ec888ff",
-                "reference": "361e07ccd11ea93ab2430e3105f7539e1ec888ff",
+                "url": "https://api.github.com/repos/FramesNPictures/el-helper/zipball/7d16b0f14a7a06b3dd8eb6528137da400952262f",
+                "reference": "7d16b0f14a7a06b3dd8eb6528137da400952262f",
                 "shasum": ""
             },
             "require": {
@@ -456,7 +456,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Fnp\\Helper\\": "src/"
+                    "Fnp\\ElHelper\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -472,9 +472,9 @@
             "description": "Re-usable Helper Libraries",
             "support": {
                 "issues": "https://github.com/FramesNPictures/el-helper/issues",
-                "source": "https://github.com/FramesNPictures/el-helper/tree/v1.0.0"
+                "source": "https://github.com/FramesNPictures/el-helper/tree/v1.0.1"
             },
-            "time": "2023-02-12T22:17:02+00:00"
+            "time": "2023-02-17T20:11:50+00:00"
         },
         {
             "name": "fruitcake/php-cors",
