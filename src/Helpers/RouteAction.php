@@ -27,9 +27,4 @@ trait RouteAction
 
         return str_replace('\\', '', get_called_class()) . ucfirst(Str::camel($provider));
     }
-
-    public static function route(...$args)
-    {
-        return route(self::name(), $args);
-    }
 }
