@@ -4,7 +4,7 @@ namespace Fnp\ElModule\Helpers;
 
 use Illuminate\Support\Str;
 
-trait RouteAction
+trait ActionHelper
 {
     /**
      * @param  string  $provider
