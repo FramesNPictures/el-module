@@ -12,7 +12,7 @@
   ],
   "require": {
     "php": "^8",
-    "framesnpictures/el-helper": "^1.2"
+    "framesnpictures/el-helper": "^1"
   },
   "require-dev": {
     "orchestra/testbench": ">=6"
