@@ -6,8 +6,6 @@ use Illuminate\Contracts\Foundation\Application;
 
 trait ModuleConsoleCommands
 {
-    abstract public function commands($commands);
-
     /**
      * Return an array of console command's class names
      *
