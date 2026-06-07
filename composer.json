@@ -11,8 +11,7 @@
     }
   ],
   "require": {
-    "php": "^8",
-    "framesnpictures/el-helper": "^1"
+    "php": "^8"
   },
   "require-dev": {
     "orchestra/testbench": ">=6"

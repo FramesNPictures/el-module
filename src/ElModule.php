@@ -2,7 +2,7 @@
 
 namespace Fnp\ElModule;
 
-use Fnp\ElHelper\Obj;
+use Fnp\ElModule\Services\ElModuleService;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
@@ -47,7 +47,7 @@ abstract class ElModule extends ServiceProvider
 
         foreach (class_uses_recursive($class) as $trait) {
 
-            $method = Obj::methodName('init', class_basename($trait), 'Feature');
+            $method = ElModuleService::methodName('init', class_basename($trait), 'Feature');
 
             if (method_exists($class, $method) && !in_array($method, $initialized)) {
                 $this->app->call([$this, $method]);
@@ -55,12 +55,12 @@ abstract class ElModule extends ServiceProvider
                 $initialized[] = $method;
             }
 
-            $method = Obj::methodName('boot', class_basename($trait), 'Feature');
+            $method = ElModuleService::methodName('boot', class_basename($trait), 'Feature');
 
             if (method_exists($class, $method) && !in_array($method, $this->__bootFeatures))
                 $this->__bootFeatures[] = $method;
 
-            $method = Obj::methodName('register', class_basename($trait), 'Feature');
+            $method = ElModuleService::methodName('register', class_basename($trait), 'Feature');
 
             if (method_exists($class, $method) && !in_array($method, $this->__registerFeatures))
                 $this->__registerFeatures[] = $method;
