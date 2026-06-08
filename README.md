@@ -259,7 +259,8 @@ class CatalogModule extends ElModule
 | `ModuleMigrations` | boot | `defineMigrationFolders(): array` | Load migrations from folders (console only) |
 | `ModuleSchedule` | boot | `defineSchedule(Schedule $scheduler): void` | Define scheduled jobs/tasks (console only) |
 | `ModuleEventListeners` | boot | `defineEventListeners(): array` | Map `event => listener` (value may be an array of listeners) |
-| `ModuleOptimization` | boot | `onOptimization(): void` / `onOptimizationClear(): void` | Hook into `artisan optimize` / `optimize:clear` |
+| `ModuleOptimizationEvents` | boot | `onOptimization(): void` / `onOptimizationClear(): void` | Run a hook after `artisan optimize` / `optimize:clear` (via the `CommandFinished` event) |
+| `ModuleCacheEvents` | boot | `onCacheCleared(): void` | Run a hook after `artisan cache:clear` (via the `CommandFinished` event) |
 | `ModuleSetupConsoleApplication` | boot | `setupConsoleApplication(Application $application)` | Arbitrary setup that runs only in the console |
 | `ModuleSetupWebApplication` | boot | `setupWebApplication(Application $application)` | Arbitrary setup that runs only for web requests |
 

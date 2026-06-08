@@ -20,5 +20,13 @@
     "psr-4": {
       "Fnp\\ElModule\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Fnp\\ElModule\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
   }
 }
